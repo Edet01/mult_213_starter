@@ -24,6 +24,7 @@ async function main() {
                 console.log("demo - Run a demo of 10 games between two preset players");
                 console.log("game - Play a game of Rock, Paper, Scissors");
                 console.log("poke - Fetch info about a given Pokemon");
+                console.log("sandbox - Run the sandbox async example");
                 console.log("q - Quit the application");
                 break;
             case "q":
