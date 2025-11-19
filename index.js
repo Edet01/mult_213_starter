@@ -52,6 +52,21 @@ async function main() {
                     console.log(`Could not find data for pokemon: ${pokemonName}`);
                 }
                 break;
+            case "music":
+                const apiKey = "";
+                if (!apiKey) {
+                    console.log("No API key provided for Discogs API.");
+                    break;
+                }
+
+                const responseMusic = await fetch(`https://api.discogs.com/database/search?q=Nirvana&token=${apiKey}`);
+                if (responseMusic.ok) {
+                    const musicData = await responseMusic.json();
+                    console.log(`Music data: ${JSON.stringify(musicData)}`);
+                } else {
+                    console.log("Failed to fetch music data.");
+                }
+                break;
             case "sandbox":
                 await sandbox();
                 break;
