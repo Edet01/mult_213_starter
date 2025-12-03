@@ -1,0 +1,123 @@
+/* General Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Container and Typography */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Dashboard Grid Layout (Responsiveness) */
+.dashboard-grid {
+    display: grid;
+    /* Default: Stack items on small screens */
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* Medium screens and up */
+@media (min-width: 768px) {
+    .dashboard-grid {
+        /* Two columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large screens and up */
+@media (min-width: 1024px) {
+    .dashboard-grid {
+        /* Three columns on desktop */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Panel and Card Styling */
+.panel {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.card-content {
+    flex-grow: 1; /* Allows the content area to expand */
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.card-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block; /* Removes any extra space below images */
+    margin: 0 auto;
+}
+
+/* Button Styling */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Loading/Awaiting Message Styling */
+.card-content p {
+    min-height: 50px; /* Ensures the box doesn't collapse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
