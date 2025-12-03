@@ -1,0 +1,16 @@
+{
+  "name": "music_finder_app",
+  "author": "Edet Ekanem",
+  "version": "1.0.0",
+  "description": "Music Finder App using Two-Step API Technique (Search Title -> Fetch Details by ID)",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/app.js --bundle --outfile=dist/main.js",
+    "watch": "esbuild src/app.js --bundle --outfile=dist/main.js --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "esbuild": "0.27.0"
+  },
+  "license": "ISC"
+}
