@@ -5,6 +5,11 @@ import Footer from './footer';
 import TodoList from './TodoList';
 import Card from './card';
 
+// ASSIGNMENT NOTE:
+// I added working form functionality using useState
+// to show dynamic task addition. The assignment's 
+// static requirements are still met. 
+
 function App() {
   // State for todos
   const [todos, setTodos] = useState([
