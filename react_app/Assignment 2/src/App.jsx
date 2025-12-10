@@ -1,88 +1,93 @@
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './footer';
+import TodoList from './TodoList';
 import Card from './card';
 
-// State for todos - stores all tasks
 function App() {
+  // State for todos
   const [todos, setTodos] = useState([
-    { id: 1, text: "Complete React assignment", completed: false },
-    { id: 2, text: "Study for math test", completed: false },
-    { id: 3, text: "Do laundry", completed: true }
+    { id: 1, text: "Meeting with Arlin", completed: false },
+    { id: 2, text: "Meeting with Jesse", completed: false },
+    { id: 3, text: "A keynote Speech for new comers -IDT", completed: true }
   ]);
 
-  const [newTodo, setNewTodo] = useState('');
+  // State for new task input
+  const [newTask, setNewTask] = useState('');
 
-  const handleAddTodo = (e) => {
+  // Handle form submit
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (newTodo.trim() === '') return;
+    if (newTask.trim() === '') return;
     
-    setTodos([
-      ...todos,
-      {
-        id: todos.length + 1,
-        text: newTodo,
-        completed: false
-      }
-    ]);
-    setNewTodo(''); // Clear input field after adding
+    const newTodo = {
+      id: todos.length + 1,
+      text: newTask,
+      completed: false
+    };
+    
+    setTodos([...todos, newTodo]);
+    setNewTask('');
   };
 
   return (
     <div className="app">
+
       <Header 
-        title="Task Manager - DAGA app" 
-        message="Keeping track of all your tasks..."
+        title="Welcome to My Website!" 
+        message="Thanks for visiting my site - DAGA App" 
       />
 
-      <main className="main">
-        {/* Add Task Form */}
-        <div className="form-container">
-          <form onSubmit={handleAddTodo} className="task-form">
+      <main className="main-content">
+        
+        <TodoList todos={todos} />
+        
+        {/* Working Form - Just as an extra functionality by my instructor */}
+        <div className="form-section">
+          <h3>Add New Task (Extra Feature)</h3>
+          <form onSubmit={handleSubmit} className="task-form">
             <input
               type="text"
-              value={newTodo}
-              onChange={(e) => setNewTodo(e.target.value)}
-              placeholder="Add a new task..."
+              value={newTask}
+              onChange={(e) => setNewTask(e.target.value)}
+              placeholder="Enter a new task..."
               className="task-input"
               required
             />
             <button type="submit" className="add-btn">
-              Add {/*Submit button*/}
+              Add Task
             </button>
           </form>
         </div>
 
-        {/* Tasks Count */}
-        <div className="tasks-info">
-          <h3>Tasks ({todos.length})</h3>
+        {/*Show tasks as individual cards */}
+        <div className="cards-section">
+          <h3>Task Cards (New tasks appear here)</h3>
+          <div className="cards-container">
+            {todos.map((todo) => (
+              <Card 
+                key={todo.id}
+                title={todo.text}
+                subtitle={todo.completed ? "Completed" : "Pending"}
+                content="This is a task item displayed on a card."
+                image="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Todo Cards that displays all tasks as cards, as required by my Instructor Jesse*/}
-        <div className="cards-container">
-          {todos.map((todo) => (
-            <Card 
-              key={todo.id}
-              title={todo.text}
-              completed={todo.completed}
-              onDelete={() => {}}
-            />
-          ))}
-        </div>
-
-        {/* Static Action */}
-        <div className="action-container">
-          <button className="action-btn">
-            Clear Completed
-            {/*This is an assignment, at this stage, buttons are not to work now, Edet*/}
-          </button>
-          <i><p className="demo-note">This is an assignment, buttons are not to work now(static) - Edet</p></i>
-        </div>
+        
+        <Card 
+          title="Daga Card" 
+          subtitle="My Card Subtitle" 
+          content="This is the content of my card."
+          image="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        />
       </main>
 
-      <Footer message="© 2025 DAGA Task App
-      Designed and managed by Edet's Design"/>
+      
+      <Footer message="Contact me at contact@mywebsite.com" />
     </div>
   );
 }
