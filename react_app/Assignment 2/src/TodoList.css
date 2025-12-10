@@ -49,7 +49,7 @@
 
 .todo-text {
     font-size: 0.95rem;
-    color: #495057;
+    color: #363e46;
 }
 
 .todo-item.completed .todo-text {
@@ -59,6 +59,7 @@
 }
 
 .remove-completed-btn {
+    
     width: 100%;
     padding: 0.75rem;
     background-color: #dc3545;
