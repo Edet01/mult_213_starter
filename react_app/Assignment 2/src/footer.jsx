@@ -1,11 +1,10 @@
-import './Footer.css'; // Import CSS for styling
+import './Footer.css';
 
-// Footer component that shows my private message and copyright
 const Footer = ({ message }) => {
     return (
         <footer className="footer">
-            <p className="footer-message">{message}</p>
-            <p className="footer-default">Copyright © 2025 My Website. All rights reserved.</p>
+            <p>{message}</p>
+            <p>Copyright © 2023 My Website. All rights reserved - Managed and maintained by EDET's DESIGNS.</p>
         </footer>
     );
 };
