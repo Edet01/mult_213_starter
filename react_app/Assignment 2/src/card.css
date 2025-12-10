@@ -72,7 +72,7 @@
 
 .card.completed .card-title {
     text-decoration: line-through;
-    color: #999;
+    color: #9a9090;
 }
 
 .card-status {
