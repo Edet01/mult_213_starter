@@ -1,5 +1,6 @@
-import './Card.css';
+import './Card.css'; // Imports Styling
 
+// Card component - displays each individualm tasks
 const Card = ({ title, completed, onDelete }) => {
     return (
         <div className={`card ${completed ? 'completed' : ''}`}>
