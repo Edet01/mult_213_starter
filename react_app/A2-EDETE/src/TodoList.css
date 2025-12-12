@@ -1,3 +1,4 @@
+<<<<<<< HEAD:react_app/A2-EDETE/src/TodoList.css
 .todo-list {
     background: white;
     padding: 25px;
@@ -57,4 +58,14 @@
 
 .remove-completed-btn:hover {
     background: #e9ecef;
+=======
+.empty-state {
+    background-color: orange;
+}
+
+#todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+>>>>>>> 6a1b381076d8549dcb34ddd700ef8016ddca8b04:react_app/todo_app/src/TodoList.css
 }
